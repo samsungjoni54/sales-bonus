@@ -117,8 +117,8 @@ function analyzeSalesData(data, options) {
 
   return rankedSellers.map((seller) => ({
     ...seller,
-    revenue: Math.round(seller.revenue * 100) / 100,
-    profit: Math.round(seller.profit * 100) / 100,
-    bonus: Math.round(seller.bonus * 100) / 100,
+    revenue: Number(seller.revenue.toFixed(2)),
+    profit: Number(seller.profit.toFixed(2)),
+    bonus: Number(seller.bonus.toFixed(2)),
   }));
 }
