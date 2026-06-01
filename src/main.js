@@ -115,5 +115,10 @@ function analyzeSalesData(data, options) {
       bonus: calculateBonus(index, totalSellers, seller),
     }));
 
-  return rankedSellers;
+  return rankedSellers.map((seller) => ({
+    ...seller,
+    revenue: Math.round(seller.revenue * 100) / 100,
+    profit: Math.round(seller.profit * 100) / 100,
+    bonus: Math.round(seller.bonus * 100) / 100,
+  }));
 }
