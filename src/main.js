@@ -101,8 +101,8 @@ function analyzeSalesData(data, options) {
     .map(([id, data]) => ({
       seller_id: id,
       name: data.name,
-      revenue: +data.revenue.toFixed(2),
-      profit: +data.profit.toFixed(2),
+      revenue: Math.round(data.revenue * 100) / 100,
+      profit: Math.round(data.profit * 100) / 100,
       sales_count: data.sales_count,
       top_products: Object.entries(data.products_sold)
         .map(([sku, quantity]) => ({ sku, quantity }))
@@ -112,7 +112,8 @@ function analyzeSalesData(data, options) {
     .sort((a, b) => b.profit - a.profit)
     .map((seller, index) => ({
       ...seller,
-      bonus: +calculateBonus(index, totalSellers, seller).toFixed(2),
+      bonus:
+        Math.round(calculateBonus(index, totalSellers, seller) * 100) / 100,
     }));
 
   return rankedSellers;
