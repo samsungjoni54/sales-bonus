@@ -35,6 +35,8 @@ function calculateBonusByProfit(index, total, seller) {
 }
 
 /**
+ *
+ *
  * Функция для анализа данных продаж
  * @param data
  * @param options
