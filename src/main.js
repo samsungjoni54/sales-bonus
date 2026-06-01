@@ -109,7 +109,7 @@ function analyzeSalesData(data, options) {
         .sort((a, b) => b.quantity - a.quantity)
         .slice(0, 10),
     }))
-    .toSorted((a, b) => b.profit - a.profit)
+    .sort((a, b) => b.profit - a.profit)
     .map((seller, index) => ({
       ...seller,
       bonus: +calculateBonus(index, totalSellers, seller).toFixed(2),
