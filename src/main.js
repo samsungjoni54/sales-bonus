@@ -106,7 +106,7 @@ function analyzeSalesData(data, options) {
       sales_count: data.sales_count,
       top_products: Object.entries(data.products_sold)
         .map(([sku, quantity]) => ({ sku, quantity }))
-        .toSorted((a, b) => b.quantity - a.quantity)
+        .sort((a, b) => b.quantity - a.quantity)
         .slice(0, 10),
     }))
     .toSorted((a, b) => b.profit - a.profit)
